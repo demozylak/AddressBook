@@ -7,8 +7,14 @@ namespace AddressBook
         public String Name { get; set; }
         public String Number { get; set; }
 
-	    /*public Class1()
+        public Contact()
+        {
+        }
+        public Contact(String name, String number)
 	    {
-	    }*/
+            this.Name = name;
+            this.Number = number;
+	    }
+
     }
 }

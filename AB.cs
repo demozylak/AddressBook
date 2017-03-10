@@ -8,11 +8,8 @@ namespace AddressBook
 {
     public sealed class AB
     {
+        #region Singleton stuff
         private static AB instance = null;
-
-        private AB()
-        {
-        }
 
         public static AB Instance
         {
@@ -25,6 +22,33 @@ namespace AddressBook
                 return instance;
             }
         }
+        #endregion
 
+        List<Contact> allContacts;
+
+        private AB() /* private constructor bcs singleton */
+        {
+            allContacts = new List<Contact>();
+            Contact c = new Contact();
+            c.Name = "aasd";
+            allContacts.Add(c);
+        }
+
+        public void addContact(Contact c)
+        {
+            allContacts.Add(c);
+        }
+
+        public List<Contact> GetList()
+        {
+            return allContacts;
+        }
+
+        public System.Collections.IEnumerator GetEnumerator()
+        {
+            return allContacts.GetEnumerator();
+        }
+        
+        
     }
 }

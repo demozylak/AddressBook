@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace AddressBook
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public AB addressbook = AB.Instance; // well should be private - new design needed
+
+        public MainForm()
         {
-            AB addressbook = AB.Instance;
  
             InitializeComponent();
-            for (int i = 0; i < 100; i++)
+
+            foreach (Contact c in addressbook)
             {
-                listBox1.Items.Add("asdasd");
+                listBox1.Items.Add(c.Name);
             }
-            listBox1.Items.Add("asdasd");
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -37,6 +39,12 @@ namespace AddressBook
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NewContactDialog subForm = new NewContactDialog(this);
+            subForm.ShowDialog();
         }
     }
 }
