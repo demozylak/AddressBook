@@ -16,35 +16,42 @@ namespace AddressBook
 
         public MainForm()
         {
- 
             InitializeComponent();
-
-            foreach (Contact c in addressbook)
-            {
-                listBox1.Items.Add(c.Name);
-            }
-            
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void searchbox_TextChanged(object sender, EventArgs e)
         {
             MessageBox.Show("dupa");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            updateList();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void newcontact_Click(object sender, EventArgs e)
         {
             NewContactDialog subForm = new NewContactDialog(this);
             subForm.ShowDialog();
+            updateList();
+
         }
+
+        private void updateList()
+        {
+            listBox1.Items.Clear();
+            foreach (Contact c in addressbook)
+            {
+                listBox1.Items.Add(c.Name);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Contact c = addressbook.getContact(listBox1.SelectedIndex);
+            lblName.Text = c.Name;
+            lblNumber.Text = c.Number;
+        }
+
     }
 }

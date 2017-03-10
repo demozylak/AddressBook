@@ -29,9 +29,6 @@ namespace AddressBook
         private AB() /* private constructor bcs singleton */
         {
             allContacts = new List<Contact>();
-            Contact c = new Contact();
-            c.Name = "aasd";
-            allContacts.Add(c);
         }
 
         public void addContact(Contact c)
@@ -47,6 +44,11 @@ namespace AddressBook
         public System.Collections.IEnumerator GetEnumerator()
         {
             return allContacts.GetEnumerator();
+        }
+
+        public Contact getContact(int n) 
+        {
+            return allContacts[n];
         }
         
         
