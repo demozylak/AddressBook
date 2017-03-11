@@ -49,9 +49,14 @@ namespace AddressBook
             return allContacts.GetEnumerator();
         }
 
-        public Contact getContact(int n) 
+        public Contact getContact(String s) 
         {
-            return allContacts[n];
+            foreach(Contact c in allContacts)
+            {
+                if (c.Name == s)
+                    return c;
+            }
+            return null;
         }
         
         private void save()
@@ -93,10 +98,13 @@ namespace AddressBook
         }
 
 
-        public void remContact(int p)
+        public void remContact(String s)
         {
-            allContacts.RemoveAt(p);
-            save();
+            foreach (Contact c in allContacts)
+            {
+                if (c.Name == s)
+                    allContacts.Remove(c);
+            }
         }
     }
 }

@@ -21,7 +21,15 @@ namespace AddressBook
 
         private void searchbox_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("dupa");
+            listBox1.Items.Clear();
+            foreach(Contact c in addressbook) 
+            {
+                if(c.Name.Contains(searchbox.Text) || c.Number.Contains(searchbox.Text))
+                {
+                    listBox1.Items.Add(c.Name);
+                }
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,7 +63,7 @@ namespace AddressBook
                 return;
             }
                 
-            Contact c = addressbook.getContact(listBox1.SelectedIndex);
+            Contact c = addressbook.getContact((String)listBox1.SelectedItem);
             lblName.Text = c.Name;
             lblNumber.Text = c.Number;
         }
@@ -64,7 +72,7 @@ namespace AddressBook
         {
             if (listBox1.SelectedIndex < 0)
                 return;
-            addressbook.remContact(listBox1.SelectedIndex);
+            addressbook.remContact((String)listBox1.SelectedItem);
             updateList();
             lblName.Text = "";
             lblNumber.Text = "";
