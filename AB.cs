@@ -56,18 +56,23 @@ namespace AddressBook
         
         private void save()
         {
-                StreamWriter w = new StreamWriter("save.txt");
+            StreamWriter w = new StreamWriter("save.txt");
 
-                foreach (Contact c in allContacts)
-                {
-                    w.WriteLine(c.Name);
-                    w.WriteLine(c.Number);
-                }
-                w.Close();
+            foreach (Contact c in allContacts)
+            {
+                w.WriteLine(c.Name);
+                w.WriteLine(c.Number);
+            }
+            w.Close();
         }
 
         private void load()
         {
+
+            if (new FileInfo("save.txt").Length == 0)
+            {
+                return;
+            }
             StreamReader reader = new StreamReader("save.txt");
             try
             {
@@ -78,16 +83,20 @@ namespace AddressBook
                 }
                 while (reader.Peek() != -1);
             }
-
             catch
             {
             }
-
             finally
             {
                 reader.Close();
             }
         }
-        
+
+
+        public void remContact(int p)
+        {
+            allContacts.RemoveAt(p);
+            save();
+        }
     }
 }

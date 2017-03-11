@@ -48,9 +48,26 @@ namespace AddressBook
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex < 0)
+            {
+                lblName.Text = "";
+                lblNumber.Text = "";
+                return;
+            }
+                
             Contact c = addressbook.getContact(listBox1.SelectedIndex);
             lblName.Text = c.Name;
             lblNumber.Text = c.Number;
+        }
+
+        private void delButton_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex < 0)
+                return;
+            addressbook.remContact(listBox1.SelectedIndex);
+            updateList();
+            lblName.Text = "";
+            lblNumber.Text = "";
         }
 
     }

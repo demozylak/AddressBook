@@ -33,10 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.lblNumber = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.delButton = new System.Windows.Forms.Button();
             this.expButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -91,14 +91,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contact";
             // 
-            // label2
+            // lblNumber
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Name: ";
+            this.lblNumber.AutoSize = true;
+            this.lblNumber.Location = new System.Drawing.Point(76, 47);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(0, 13);
+            this.lblNumber.TabIndex = 3;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(76, 23);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.TabIndex = 2;
             // 
             // label3
             // 
@@ -109,21 +116,14 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Number:";
             // 
-            // lblName
+            // label2
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(76, 23);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 13);
-            this.lblName.TabIndex = 2;
-            // 
-            // lblNumber
-            // 
-            this.lblNumber.AutoSize = true;
-            this.lblNumber.Location = new System.Drawing.Point(76, 47);
-            this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(0, 13);
-            this.lblNumber.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Name: ";
             // 
             // delButton
             // 
@@ -133,6 +133,7 @@
             this.delButton.TabIndex = 5;
             this.delButton.Text = "Delete";
             this.delButton.UseVisualStyleBackColor = true;
+            this.delButton.Click += new System.EventHandler(this.delButton_Click);
             // 
             // expButton
             // 
